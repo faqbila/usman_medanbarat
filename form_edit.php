@@ -98,7 +98,7 @@ $foto_path = (!empty($peserta['foto']) && file_exists(__DIR__ . '/uploads/pesert
                             <!-- Section: Data Alamat & Kelompok -->
                             <div class="col-12 mt-4">
                                 <h6 class="fw-bold text-success border-bottom pb-2 mb-3">
-                                    <i class="fas fa-map-location-dot me-2"></i> Data Kelompok & Kelurahan
+                                    <i class="fas fa-map-location-dot me-2"></i> Data Kelompok & Desa
                                 </h6>
                             </div>
 
@@ -108,12 +108,12 @@ $foto_path = (!empty($peserta['foto']) && file_exists(__DIR__ . '/uploads/pesert
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label fw-semibold text-dark">Desa / Kelurahan <span class="text-danger">*</span></label>
+                                <label class="form-label fw-semibold text-dark">Desa <span class="text-danger">*</span></label>
                                 <select name="desa" class="form-select" required>
                                     <?php 
                                     $kelurahan_list = [
-                                        'Kelurahan Silalas', 'Kelurahan Glugur Kota', 'Kelurahan Sei Agul',
-                                        'Kelurahan Karang Berombak', 'Kelurahan Pulo Brayan Kota', 'Kelurahan Kesawan'
+                                        'Gaperta', 'Medan Baru', 'Kampung Baru',
+                                        'Sunggal', 'Binjai Barat', 'Binjai Utara', 'Glugur', 'Medan Deli'
                                     ];
                                     foreach ($kelurahan_list as $kel):
                                     ?>

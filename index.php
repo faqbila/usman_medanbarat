@@ -59,7 +59,7 @@ if (isset($pdo)) {
             <div class="col-lg-4 d-none d-lg-block text-center position-relative">
                 <div class="bg-white bg-opacity-10 backdrop-blur rounded-4 p-4 text-white border border-white border-opacity-25 shadow-lg">
                     <i class="fas fa-user-shield display-1 text-warning mb-3"></i>
-                    <h5 class="fw-bold text-white mb-1">Kecamatan Medan Barat</h5>
+                    <h5 class="fw-bold text-white mb-1">PNKB Daerah Medan Barat</h5>
                     <p class="small text-white-50 mb-0">Pendataan Terintegrasi & Akses WhatsApp Direct</p>
                 </div>
             </div>

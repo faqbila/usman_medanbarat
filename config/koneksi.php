@@ -8,10 +8,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$host     = '127.0.0.1';
-$db_name  = 'db_usia_mandiri';
-$username = 'root';
-$password = '';
+$host     = 'sql106.infinityfree.com';
+$db_name  = 'if0_43075724_usman_medan';
+$username = 'if0_43075724 ';
+$password = 'KM8MHdDNcAR0u';
 $port     = 3306;
 
 try {

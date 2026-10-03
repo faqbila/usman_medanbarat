@@ -1,10 +1,3 @@
--- ============================================================
--- SQL Script untuk Database "db_usia_mandiri"
--- Aplikasi: Usia Mandiri Medan Barat
--- ============================================================
-
-CREATE DATABASE IF NOT EXISTS `db_usia_mandiri` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `db_usia_mandiri`;
 
 -- ------------------------------------------------------------
 -- Struktur Tabel `tb_peserta`

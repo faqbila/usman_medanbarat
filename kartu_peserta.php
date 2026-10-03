@@ -73,7 +73,7 @@ if (isset($pdo)) {
 
             <!-- Filter Desa -->
             <div class="col-6 col-md-2-5">
-                <label class="form-label small fw-bold text-muted"><i class="fas fa-map-marker-alt me-1"></i> Desa/Kelurahan</label>
+                <label class="form-label small fw-bold text-muted"><i class="fas fa-map-marker-alt me-1"></i> Desa</label>
                 <select id="filter_desa" class="form-select">
                     <option value="">Semua Desa</option>
                     <?php foreach ($desa_options as $d): ?>
@@ -116,80 +116,95 @@ if (isset($pdo)) {
                      data-desa="<?= htmlspecialchars($p['desa']) ?>"
                      data-gender="<?= htmlspecialchars($p['jenis_kelamin']) ?>">
                     
-                    <div class="profile-card p-3 text-center h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <!-- Header Action Dropdown -->
-                            <div class="d-flex justify-content-between align-items-center mb-2">
+                    <!-- Rectangular ID-Card Layout (Kotak Foto Wajah Besar) -->
+                    <div class="id-card">
+                        <!-- Top Header Bar -->
+                        <div class="id-card-header-bar d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-id-card me-1"></i> KARTU PESERTA</span>
+                            <span>MEDAN BARAT</span>
+                        </div>
+
+                        <!-- Big Rectangular Photo Box -->
+                        <div class="id-card-photo-wrapper">
+                            <!-- Gender Overlay Badge -->
+                            <div class="id-card-badge-top-left">
                                 <span class="badge <?= $gender_class ?> px-2 py-1 rounded-pill small">
                                     <i class="fas fa-<?= $p['jenis_kelamin'] === 'Laki-laki' ? 'mars' : 'venus' ?> me-1"></i>
                                     <?= htmlspecialchars($p['jenis_kelamin']) ?>
                                 </span>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-light rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v text-muted"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-3">
-                                        <li>
-                                            <a class="dropdown-item py-2" href="#" data-bs-toggle="modal" data-bs-target="#modalDetailKartu<?= $p['id'] ?>">
-                                                <i class="fas fa-eye text-info me-2"></i> Detail
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item py-2" href="form_edit.php?id=<?= $p['id'] ?>">
-                                                <i class="fas fa-edit text-warning me-2"></i> Edit
-                                            </a>
-                                        </li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li>
-                                            <a class="dropdown-item py-2 text-danger" href="javascript:void(0)" onclick="konfirmasiHapus(<?= $p['id'] ?>, '<?= htmlspecialchars($p['nama_panggilan']) ?>')">
-                                                <i class="fas fa-trash me-2"></i> Hapus
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
 
-                            <!-- Photo Avatar -->
-                            <div class="profile-avatar-wrapper">
-                                <img src="<?= $foto_path ?>" alt="Foto" class="profile-avatar">
+                            <!-- Action Dropdown Overlay -->
+                            <div class="id-card-dropdown-top-right dropdown">
+                                <button class="btn btn-sm btn-light rounded-circle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v text-dark"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-3">
+                                    <li>
+                                        <a class="dropdown-item py-2" href="#" data-bs-toggle="modal" data-bs-target="#modalDetailKartu<?= $p['id'] ?>">
+                                            <i class="fas fa-eye text-info me-2"></i> Detail
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item py-2" href="form_edit.php?id=<?= $p['id'] ?>">
+                                            <i class="fas fa-edit text-warning me-2"></i> Edit
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item py-2 text-danger" href="javascript:void(0)" onclick="konfirmasiHapus(<?= $p['id'] ?>, '<?= htmlspecialchars($p['nama_panggilan']) ?>')">
+                                            <i class="fas fa-trash me-2"></i> Hapus
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <!-- Name & Age -->
-                            <h5 class="fw-bold text-dark mb-0 text-truncate" title="<?= htmlspecialchars($p['nama_panggilan']) ?>">
-                                <?= htmlspecialchars($p['nama_panggilan']) ?>
-                            </h5>
-                            <small class="text-muted d-block mb-2 text-truncate" style="font-size: 0.85rem;">
-                                <?= htmlspecialchars($p['nama_lengkap']) ?>
-                            </small>
+                            <!-- Big Rectangular Face Image -->
+                            <img src="<?= $foto_path ?>" alt="Foto <?= htmlspecialchars($p['nama_panggilan']) ?>" class="id-card-photo">
 
-                            <!-- Badges -->
-                            <div class="d-flex justify-content-center gap-1 mb-3 flex-wrap">
-                                <span class="badge bg-warning bg-opacity-20 text-dark fw-bold px-2 py-1 rounded-2">
-                                    <i class="fas fa-birthday-cake me-1 text-warning"></i> <?= (int)$p['usia'] ?> Thn
-                                </span>
-                                <span class="badge bg-light text-secondary border px-2 py-1 rounded-2">
-                                    <?= htmlspecialchars($p['pendidikan_terakhir']) ?>
-                                </span>
-                            </div>
-
-                            <!-- Location Info -->
-                            <div class="bg-light p-2 rounded-3 text-start small mb-3">
-                                <div class="text-truncate mb-1">
-                                    <i class="fas fa-users text-success me-1"></i>
-                                    <strong class="text-dark"><?= htmlspecialchars($p['kelompok']) ?></strong>
-                                </div>
-                                <div class="text-truncate">
-                                    <i class="fas fa-location-dot text-danger me-1"></i>
-                                    <span class="text-muted"><?= htmlspecialchars($p['desa']) ?></span>
-                                </div>
+                            <!-- Age Tag Overlay -->
+                            <div class="id-card-age-tag">
+                                <i class="fas fa-birthday-cake me-1"></i> <?= (int)$p['usia'] ?> Thn
                             </div>
                         </div>
 
-                        <!-- Action Button WhatsApp -->
-                        <a href="<?= format_wa_url($p['no_wa'], $p['nama_panggilan']) ?>" target="_blank" class="btn btn-whatsapp w-100 d-flex align-items-center justify-content-center gap-2 mt-2">
-                            <i class="fab fa-whatsapp fs-5"></i>
-                            <span>Chat WhatsApp</span>
-                        </a>
+                        <!-- Card Body Details -->
+                        <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                            <div>
+                                <!-- Name & Title -->
+                                <h5 class="fw-bold text-dark mb-0 text-truncate" title="<?= htmlspecialchars($p['nama_panggilan']) ?>">
+                                    <?= htmlspecialchars($p['nama_panggilan']) ?>
+                                </h5>
+                                <small class="text-muted d-block mb-3 text-truncate" style="font-size: 0.85rem;">
+                                    <?= htmlspecialchars($p['nama_lengkap']) ?>
+                                </small>
+
+                                <!-- Info List (Kelompok, Desa & Pendidikan) -->
+                                <div class="bg-light p-2-5 rounded-3 text-start small mb-3">
+                                    <div class="text-truncate mb-1">
+                                        <i class="fas fa-users text-success me-1"></i>
+                                        <span class="text-muted">Kelompok:</span>
+                                        <strong class="text-dark ms-1"><?= htmlspecialchars($p['kelompok']) ?></strong>
+                                    </div>
+                                    <div class="text-truncate mb-1">
+                                        <i class="fas fa-location-dot text-danger me-1"></i>
+                                        <span class="text-muted">Desa:</span>
+                                        <span class="fw-semibold text-dark ms-1"><?= htmlspecialchars($p['desa']) ?></span>
+                                    </div>
+                                    <div class="text-truncate">
+                                        <i class="fas fa-graduation-cap text-primary me-1"></i>
+                                        <span class="text-muted">Pendidikan:</span>
+                                        <span class="fw-semibold text-dark ms-1"><?= htmlspecialchars($p['pendidikan_terakhir']) ?></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Direct WhatsApp Action Button -->
+                            <a href="<?= format_wa_url($p['no_wa'], $p['nama_panggilan']) ?>" target="_blank" class="btn btn-whatsapp w-100 d-flex align-items-center justify-content-center gap-2 mt-2">
+                                <i class="fab fa-whatsapp fs-5"></i>
+                                <span>Chat WhatsApp</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -220,7 +235,7 @@ if (isset($pdo)) {
                                         <span class="fw-bold text-dark"><?= htmlspecialchars($p['kelompok']) ?></span>
                                     </div>
                                     <div class="col-6">
-                                        <small class="text-muted d-block">Desa/Kelurahan</small>
+                                        <small class="text-muted d-block">Desa</small>
                                         <span class="fw-bold text-dark"><?= htmlspecialchars($p['desa']) ?></span>
                                     </div>
                                     <div class="col-6">

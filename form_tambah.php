@@ -34,12 +34,12 @@ require_once __DIR__ . '/includes/navbar.php';
 
                             <div class="col-md-7">
                                 <label class="form-label fw-semibold text-dark">Nama Lengkap <span class="text-danger">*</span></label>
-                                <input type="text" name="nama_lengkap" class="form-control" placeholder="Contoh: Ahmad Subagja" required>
+                                <input type="text" name="nama_lengkap" class="form-control" placeholder="Contoh: " required>
                             </div>
 
                             <div class="col-md-5">
                                 <label class="form-label fw-semibold text-dark">Nama Panggilan <span class="text-danger">*</span></label>
-                                <input type="text" name="nama_panggilan" class="form-control" placeholder="Contoh: Ahmad" required>
+                                <input type="text" name="nama_panggilan" class="form-control" placeholder="Contoh: " required>
                             </div>
 
                             <div class="col-md-6">
@@ -73,26 +73,29 @@ require_once __DIR__ . '/includes/navbar.php';
                             <!-- Section: Data Alamat & Domisili -->
                             <div class="col-12 mt-4">
                                 <h6 class="fw-bold text-success border-bottom pb-2 mb-3">
-                                    <i class="fas fa-map-location-dot me-2"></i> Data Kelompok & Kelurahan
+                                    <i class="fas fa-map-location-dot me-2"></i> Data Kelompok & Desa
                                 </h6>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold text-dark">Kelompok <span class="text-danger">*</span></label>
-                                <input type="text" name="kelompok" class="form-control" placeholder="Contoh: Kelompok Mandiri 01" required>
+                                <input type="text" name="kelompok" class="form-control" placeholder="Contoh: Kelompok Sambung" required>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label fw-semibold text-dark">Desa / Kelurahan <span class="text-danger">*</span></label>
-                                <select name="desa" class="form-select" required>
-                                    <option value="">-- Pilih Kelurahan Medan Barat --</option>
-                                    <option value="Kelurahan Silalas">Kelurahan Silalas</option>
-                                    <option value="Kelurahan Glugur Kota">Kelurahan Glugur Kota</option>
-                                    <option value="Kelurahan Sei Agul">Kelurahan Sei Agul</option>
-                                    <option value="Kelurahan Karang Berombak">Kelurahan Karang Berombak</option>
-                                    <option value="Kelurahan Pulo Brayan Kota">Kelurahan Pulo Brayan Kota</option>
-                                    <option value="Kelurahan Kesawan">Kelurahan Kesawan</option>
-                                </select>
+                                <label class="form-label fw-semibold text-dark">Desa <span class="text-danger">*</span></label>
+                               <select name="desa" class="form-select" required>
+                                 <option value="">-- Pilih Kelurahan --</option>
+                                 <option value="Gaperta">Gaperta</option>
+                                 <option value="Medan Baru">Medan Baru</option>
+                                 <option value="Kampung Baru">Kampung Baru</option>
+                                 <option value="Sunggal">Sunggal</option>
+                                 <option value="Binjai Barat">Binjai Barat</option>
+                                 <option value="Binjai Utara">Binjai Utara</option>
+                                 <option value="Glugur">Glugur</option>
+                                 <option value="Medan Deli">Medan Deli</option>
+                               </select>
+
                             </div>
 
                             <div class="col-md-6">
